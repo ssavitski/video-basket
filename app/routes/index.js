@@ -13,22 +13,35 @@ const { youtube:host } = ENV.host;
 export default Route.extend({
   ajax: service(),
 
-  model() {
+  model({ search:word }) {
     const vimeoModelName = 'vimeo-video';
-    const vimeoQueryParams = { word: 'California' };
+    const vimeoQueryParams = { word };
     const youtubeURL = `https://${host}/youtube/v3/search`;
     const data = {
-      q: 'California',
+      q: word,
       maxResults: 25,
       key,
       part: 'snippet',
     };
     const youtubeQueryParams = { data };
+    // Search through dailymotion videos by string typed by user
+    const filteredVideos = dailymotionVideos.filter(video =>
+      video.title.indexOf(word) !== -1
+    );
 
     return RSVP.hash({
-      dailymotion: dailymotionVideos,
-      youtube: this.get('ajax').request(youtubeURL, youtubeQueryParams),
-      vimeo: this.get('store').query(vimeoModelName, vimeoQueryParams),
+      dailymotion: word ? filteredVideos : [],
+      // Fetch filtered by string youtube videos
+      youtube: word ? this.get('ajax').request(youtubeURL, youtubeQueryParams) : [],
+      // Fetch filtered by string vimeo videos from Ember store
+      vimeo: word ? this.get('store').query(vimeoModelName, vimeoQueryParams) : [],
     });
+  },
+
+  actions: {
+    // Refresh model
+    refreshModel() {
+      this.refresh();
+    },
   },
 });

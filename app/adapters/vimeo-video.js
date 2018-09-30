@@ -28,7 +28,7 @@ export default DS.JSONAPIAdapter.extend({
     // Construct proper url if word exists
     const host = this.get('host');
     const namespace = this.get('namespace');
-    const pathname = `/tags/${word}/videos`;
+    const pathname = `/tags/${word.split(' ').get('firstObject')}/videos`;
 
     return `${host}${namespace}${pathname}`;
   },

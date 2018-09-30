@@ -2,6 +2,8 @@
 
 Agregator of videos from different sources: [YouTube](http://youtube.com), [Vimeo](http://vimeo.com), [Dailymotion](https://www.dailymotion.com/), etc
 
+![Agregator of videos from different sources](/docs/img/preview.jpg)
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
