@@ -17,6 +17,13 @@ module.exports = function(environment) {
       }
     },
 
+    accessToken: {
+      vimeo: '07ed6def508ca0571da64c4ad004fe77',
+    },
+    host: {
+      vimeo: 'api.vimeo.com',
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
