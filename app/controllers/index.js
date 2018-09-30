@@ -12,24 +12,9 @@ export default Controller.extend({
     'model.vimeo'
   ),
 
-  typingTimer: undefined,
-  doneTypingInterval: 800,
-
   actions: {
-    clearTiming() {
-      clearTimeout(this.get('typingTimer'));
-    },
-
-    filterVideos() {
-      this.send('clearTiming');
-
-      const doneTyping = () => {
-        this.get('target').send('refreshModel');
-      };
-      const doneTypingInterval = this.get('doneTypingInterval');
-      const typingTimer = setTimeout(doneTyping, doneTypingInterval);
-
-      this.set('typingTimer', typingTimer);
+    refreshModel() {
+      this.get('target').send('refreshModel');
     },
   },
 });

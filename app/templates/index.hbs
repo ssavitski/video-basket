@@ -1,17 +1,4 @@
-<div class="input-group">
-  <div class="input-group-prepend">
-    <span class="input-group-text">
-      {{fa-icon "search" class="text-primary" size=1}}
-    </span>
-  </div>
-
-  {{input class="form-control"
-          id="video-search"
-          value=search
-          key-up=(action 'filterVideos')
-          placeholder="Type your search"}}
-</div>
-<span class="font-italic text-black-50">Example: 'California'</span>
+{{video-search-field value=search filter=(action 'refreshModel')}}
 <br>
 <div class="row justify-content-md-center">
   {{#each videos as |video|}}

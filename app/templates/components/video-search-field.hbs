@@ -1,0 +1,17 @@
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">
+      {{fa-icon "search" class="text-primary" size=1}}
+    </span>
+  </div>
+
+  {{input class="form-control"
+          id="video-search"
+          value=value
+          key-up=(action 'filterVideos')
+          key-down=(action 'clearTiming')
+          placeholder="Type your search"}}
+</div>
+<span class="font-italic text-black-50">Example: 'California'</span>
+
+{{yield}}
