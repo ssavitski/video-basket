@@ -1,0 +1,6 @@
+{
+  "name": "video-basket",
+  "devDependencies": {
+    "bemify": "^0.1.2"
+  }
+}

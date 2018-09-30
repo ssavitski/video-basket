@@ -1,5 +1,17 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<header id="header" class="container">
+  <div class="py-5 text-center">
+    {{fa-icon "video-camera" class="text-primary" size=5}}
+    <h2 class="text-dark">Video for every taste</h2>
+    <p class="lead">Agregator of videos from different sources</p>
+  </div>
+</header>
 
-{{outlet}}
+<main id="content" class="container">
+  {{outlet}}
+</main>
+
+<footer id="footer" class="container">
+  <div class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">© 2018 Video agregator v1.0</p>
+  </div>
+</footer>

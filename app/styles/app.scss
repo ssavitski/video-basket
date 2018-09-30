@@ -1,0 +1,13 @@
+// Default stylization for App
+@import "ember-bootstrap/bootstrap";
+
+// For BEM methodology usage
+@import './vendor/bemify/sass/bemify';
+
+
+
+// App custom styles
+@import "base/index";
+@import "vendor/index";
+@import "routes/index";
+@import "components/index";
