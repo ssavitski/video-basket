@@ -19,9 +19,11 @@ module.exports = function(environment) {
 
     accessToken: {
       vimeo: '07ed6def508ca0571da64c4ad004fe77',
+      youtube: 'AIzaSyCEaCNFxgZ28-vG-ofUccVdqAUhVGRot7c',
     },
     host: {
       vimeo: 'api.vimeo.com',
+      youtube: 'content.googleapis.com',
     },
 
     APP: {
