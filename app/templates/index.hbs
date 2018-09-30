@@ -1,3 +1,7 @@
-Main content
+<div class="row justify-content-md-center">
+  {{#each videos as |video|}}
+    {{video-player video=video}}
+  {{/each}}
+</div>
 
 {{outlet}}
