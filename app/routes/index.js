@@ -13,6 +13,12 @@ const { youtube:host } = ENV.host;
 export default Route.extend({
   ajax: service(),
 
+  afterModel() {
+    const controller = this.controllerFor('application');
+
+    controller.set('loadingState', false);
+  },
+
   model({ search:word }) {
     const vimeoModelName = 'vimeo-video';
     const vimeoQueryParams = { word };
@@ -42,6 +48,13 @@ export default Route.extend({
     // Refresh model
     refreshModel() {
       this.refresh();
+    },
+
+    loading() {
+      const controller = this.controllerFor('application');
+      controller.set('loadingState', true);
+
+      return true; // allows the loading template to be shown
     },
   },
 });
