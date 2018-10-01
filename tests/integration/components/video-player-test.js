@@ -3,24 +3,17 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
+import vimeo from 'video-basket/tests/mock-data/vimeo';
+
 module('Integration | Component | video-player', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test('iframe with video player should exist', async function(assert) {
+    this.set('video', vimeo[0]);
 
-    await render(hbs`{{video-player}}`);
+    await render(hbs`{{video-player video=video}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#video-player}}
-        template block text
-      {{/video-player}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.ok(this.element.querySelector('iframe').length,
+      'iframe with video player exists');
   });
 });
